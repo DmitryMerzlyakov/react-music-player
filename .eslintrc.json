@@ -19,5 +19,7 @@
         "react"
     ],
     "rules": {
+        "camelcase": ["off"],
+        "kebab-case": ["off"]
     }
 }
