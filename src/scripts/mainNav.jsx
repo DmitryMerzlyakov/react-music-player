@@ -1,12 +1,17 @@
+import { useState } from 'react';
 import logo from '../assets/img/logo.png';
 import '../assets/css/style.scss';
 
 const Nav = () => {
+  const [visible, setVisible] = useState(false);
+
+  const toggleVisible = () => setVisible(!visible)
+
     return (
         <nav className='main__nav nav'>
           <Logo />
-          <Burger />
-          <Menu />
+          <Burger onClick={toggleVisible} />
+          {visible && <Menu />}
         </nav>
     );
 }
@@ -18,9 +23,9 @@ const Logo = () => {
     </div>);
 };
 
-const Burger = () => {
+const Burger = ({onClick}) => {
   return (
-    <div className="nav__burger burger">
+    <div onClick={onClick} className="nav__burger burger">
       <span className="burger__line"></span>
       <span className="burger__line"></span>
       <span className="burger__line"></span>

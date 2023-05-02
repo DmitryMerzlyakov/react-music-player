@@ -1,0 +1,8 @@
+.list {
+  width: 250px;
+  height: 150px;
+  background: #313131;
+}
+.list:not(:last-child) {
+  margin-bottom: 30px;
+}
