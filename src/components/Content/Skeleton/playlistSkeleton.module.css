@@ -1,0 +1,42 @@
+.playlist__item {
+  width: 100%;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.playlist__track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.title {
+  width: 51px;
+  height: 51px;
+  background: #313131;
+}
+.author {
+  width: 356px;
+  height: 19px;
+  background: #313131;
+}
+.album {
+  width: 271px;
+  height: 19px;
+  background: #313131;
+}
+.time {
+  width: 305px;
+  height: 19px;
+  background: #313131;
+}

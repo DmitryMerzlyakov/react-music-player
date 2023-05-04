@@ -1,13 +1,13 @@
-import './assets/css/style.scss';
-import Nav from './scripts/mainNav';
-import Content from './scripts/mainContent';
-import Footer from './scripts/mainFooter';
-import Sidebar from './scripts/mainSidebar';
+import Nav from './components/Navbar/mainNav'
+import Content from './components/Content/mainContent';
+import Footer from './components/Footer/mainFooter';
+import Sidebar from './components/Sidebar/mainSidebar';
+import s from './app.module.css'
   
 const App = () => {
   return (
-    <div className='wrapper container'>
-      <main className='main'>
+    <div className={`${s.wrapper} ${s.container}`}>
+      <main className={s.main}>
         <Nav />
         <Content />
         <Footer />

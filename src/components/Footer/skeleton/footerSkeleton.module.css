@@ -1,0 +1,36 @@
+.img {
+  width: 51px;
+  height: 51px;
+  background: #313131;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  grid-area: image;
+}
+.author {
+  width: 59px;
+  height: 15px;
+  background: #313131;
+  grid-area: author;
+  min-width: 49px;
+}
+.album {
+  width: 59px;
+  height: 15px;
+  background: #313131;
+  grid-area: album;
+  min-width: 49px;
+}
+
+.track {
+  width: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 1fr;
+      grid-template-columns: auto 1fr;
+      grid-template-areas: "image author" "image album";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}

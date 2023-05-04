@@ -1,0 +1,316 @@
+.bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(28, 28, 28, 0.5);
+}
+
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.progress {
+  width: 100%;
+  height: 5px;
+  background: #2E2E2E;
+}
+
+.block {
+  height: 73px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.player {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.volume {
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 92px 0 0;
+}
+
+.controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 0 27px 0 31px;
+}
+
+.prev, .play, .next, .repeat, .shuffle {
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.prev {
+  margin-right: 23px;
+}
+
+.play {
+  margin-right: 23px;
+}
+
+.next {
+  margin-right: 28px;
+  fill: #a53939;
+}
+
+.repeat {
+  margin-right: 24px;
+}
+
+.btn-text:hover {
+  border-color: #D9B6FF;
+  color: #D9B6FF;
+  cursor: pointer;
+}
+
+.btnicon:hover svg {
+  fill: transparent;
+  stroke: #ACACAC;
+  cursor: pointer;
+}
+
+.btn-text:active {
+  border-color: #AD61FF;
+  color: #AD61FF;
+  cursor: pointer;
+}
+
+.btnicon:active svg {
+  fill: transparent;
+  stroke: #FFFFFF;
+  cursor: pointer;
+}
+
+.btnicon:active .trackplay__likesvg,
+.btnicon:active .trackplay__dislikesvg {
+  fill: #696969;
+  stroke: #FFFFFF;
+  cursor: pointer;
+}
+
+.prevsvg {
+  width: 15px;
+  height: 14px;
+}
+
+.playsvg {
+  width: 22px;
+  height: 20px;
+  fill: #D9D9D9;
+}
+
+.nextsvg {
+  width: 15px;
+  height: 14px;
+  fill: inherit;
+  stroke: #D9D9D9;
+}
+
+.repeatsvg {
+  width: 18px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+}
+
+.shufflesvg {
+  width: 19px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+}
+
+.trackplay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.contain {
+  width: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 1fr;
+      grid-template-columns: auto 1fr;
+      grid-template-areas: "image author" "image album";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.image {
+  width: 51px;
+  height: 51px;
+  background-color: #313131;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 12px;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: image;
+}
+
+.svg {
+  width: 18px;
+  height: 17px;
+  fill: transparent;
+  stroke: #4E4E4E;
+}
+
+.author {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: author;
+  min-width: 49px;
+}
+
+.authorlink {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+
+.album {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: album;
+  min-width: 49px;
+}
+
+.albumlink {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.likedis {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 26%;
+}
+
+.like, .dislike {
+  padding: 5px;
+}
+
+.likesvg {
+  width: 14px;
+  height: 12px;
+  fill: transparent;
+  stroke: #696969;
+}
+
+.dislike {
+  margin-left: 28.5px;
+}
+
+.dislikesvg {
+  width: 14.34px;
+  height: 13px;
+  fill: transparent;
+  stroke: #696969;
+}
+
+.volume__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+}
+
+.volume__image {
+  width: 13px;
+  height: 18px;
+  margin-right: 17px;
+}
+
+.volume__svg {
+  width: 13px;
+  height: 18px;
+  fill: transparent;
+}
+
+.volume__progress {
+  width: 109px;
+}
+
+.volume__progressline {
+  width: 109px;
+}
