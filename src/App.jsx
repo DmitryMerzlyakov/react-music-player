@@ -1,18 +1,21 @@
-import Nav from './components/Navbar/mainNav'
-import Content from './components/Content/mainContent';
-import Footer from './components/Footer/mainFooter';
-import Sidebar from './components/Sidebar/mainSidebar';
+import { useState } from "react";
+import AppRoutes from "./routes";
 import s from './app.module.css'
-  
+
 const App = () => {
+
+  const [user, setUser] = useState(localStorage.getItem('user') === 'true');
+  const [userName, setUserName] = useState('');
+
+
   return (
     <div className={`${s.wrapper} ${s.container}`}>
-      <main className={s.main}>
-        <Nav />
-        <Content />
-        <Footer />
-        <Sidebar />
-      </main>
+      <AppRoutes
+        user={user}
+        userName={userName}
+        setUser={setUser}
+        setUserName={setUserName}
+      />
     </div>);
 };
 
