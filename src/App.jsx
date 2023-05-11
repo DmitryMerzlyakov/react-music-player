@@ -11,10 +11,10 @@ const App = () => {
   return (
     <div className={`${s.wrapper} ${s.container}`}>
       <AppRoutes
-        user={user}
-        userName={userName}
-        setUser={setUser}
-        setUserName={setUserName}
+      user={user}
+      userName={userName}
+      setUser={setUser}
+      setUserName={setUserName}
       />
     </div>);
 };

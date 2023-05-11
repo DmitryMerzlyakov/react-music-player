@@ -14,8 +14,8 @@ const AppRoutes = ({ user, setUser, userName, setUserName }) => {
                 element={<Login setUser={ setUser } setUserName={ setUserName } />}
             />
             <Route path="/playlist/mymusic" element={<MyMusic user={ user } userName={ userName }/>} />
-            <Route path="/registration" element={<Registration />} />
-            <Route path="/" element={<Main user={user} userName={ userName } />} /> 
+            <Route path="/registration" element={<Registration />}/>
+            <Route path="/" element={<Main user={user} userName={ userName } setUserName={ setUserName } setUser={ setUser }/>} /> 
             <Route path="/playlist/hits" element={<Hits user={user} userName={ userName }/>} />
             <Route path="/playlist/indi" element={<Indi user={user} userName={ userName }/>} />
             <Route path="/playlist/dayplaylist" element={<Day user={user} userName={ userName }/>} />

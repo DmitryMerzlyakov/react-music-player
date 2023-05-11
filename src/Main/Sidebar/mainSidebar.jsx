@@ -6,13 +6,13 @@ import playlist03 from './img/playlist03.png';
 import s from './css/mainSidebar.module.css'
 
 
-const Sidebar = ({user, userName}) => {
+const Sidebar = ({ userName}) => {
     return (
         <>
         <div className={s.main__sidebar}>
-            {
+            {/* {
                 user ?
-            <>
+            <> */}
             <div className={s.sidebar__personal}>
                 <p className={s.sidebar__personalname}>{ userName }</p>
                 <div className={s.sidebar__avatar}>
@@ -32,8 +32,8 @@ const Sidebar = ({user, userName}) => {
                     </Link>
                 </div> 
             </div>
-            </>
-             : ''}
+            {/* </>
+             : ''} */}
         </div> 
         </>    
     );

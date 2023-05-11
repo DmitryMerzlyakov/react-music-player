@@ -40,12 +40,8 @@ const Menu = ({user}) => {
     <div className={s.nav__menu}>
       <ul className={s.menu__list}>
             <li className={s.menu__item}><Link className={s.menu__link} to='/'>Главное</Link></li>
-            {user ? 
-               <li className={s.menu__item}>
-                <Link className={s.menu__link} to='/playlist/mymusic'>Мой плейлист</Link>
-              </li> : ''
-            }
-            <li className={s.menu__item}><Link className={s.menu__link} to='/login'>Войти</Link></li>
+            <li className={s.menu__item}><Link className={s.menu__link} to='/playlist/mymusic'>Мой плейлист</Link></li>
+            <li className={s.menu__item}><Link className={s.menu__link} to='/login'>{user ? '' : 'Выйти'}</Link></li>
         </ul>
     </div>);
 }

@@ -23,10 +23,10 @@ const Login = ({setUserName, setUser}) => {
     const handleLogin = (e) => {
         e.preventDefault();
         localStorage.setItem('user', true)
-        localStorage.setItem('setUserName', login)
+        localStorage.setItem('userName', login)
         setUserName(login)
         setUser(true)
-        navigate('/playlist')
+        navigate('/')
     }
 
 
