@@ -1,11 +1,17 @@
 import sprite from './icon/sprite.svg';
 import SkeletonFooter from './skeleton/footerSkeleton';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import s from './css/mainFooter.module.css'
 
 const Footer = () => {
 
     const [loading, setLoading] = useState(true);
+    const playRef = useRef(null);
+
+    const hendlePlay = () => {
+        playRef.current.play()
+        console.log(playRef);
+    }
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -26,7 +32,10 @@ const Footer = () => {
                                         <use xlinkHref={`${sprite}#icon-prev`}></use>
                                     </svg>
                                 </div>
-                            <div className={`${s.play} `}>
+                            <div className={`${s.play} `}  onClick={hendlePlay}>
+                                    <audio
+                                    ref={playRef} 
+                                    src="../audio/Bobby_Marleni_-_Dropin.mp3"></audio>
                                     <svg className={s.playsvg} alt="play">
                                         <use xlinkHref={`${sprite}#icon-play`}></use>
                                     </svg>
