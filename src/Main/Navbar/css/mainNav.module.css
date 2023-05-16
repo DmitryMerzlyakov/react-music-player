@@ -1,6 +1,17 @@
+:root {
+  --color-text-dark: #FFFFFF;  
+  --color-text-light: #181818;
+
+  --background-colorNav-dark: #1C1C1C;
+  --background-colorNav-light: #f7f6f5;
+
+  --color-text-default: var(--color-text-dark);
+  --background-colorNav-default: var(--background-colorNav-dark);
+}
+
 .main__nav {
   width: 244px;
-  background-color: #181818;
+  background-color: var(--background-colorNav-default);
   padding: 20px 0 20px 36px;
 }
 
@@ -38,7 +49,7 @@
   display: inline-block;
   width: 100%;
   height: 1px;
-  background-color: #D3D3D3;
+  background-color: var(--color-text-default);
 }
 
 .nav__menu {
@@ -56,7 +67,7 @@
 }
 
 .menu__link {
-  color: #FFFFFF;
+  color: var(--color-text-default);
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;

@@ -1,0 +1,20 @@
+:root {
+  --color-text-dark: #FFFFFF;  
+  --color-text-light: #181818;
+
+  --background-colorNav-dark: #1C1C1C;
+  --background-colorNav-light: #f7f6f5;
+
+  --color-text-default: var(--color-text-dark);
+  --background-colorNav-default: var(--background-colorNav-dark);
+
+}
+
+.button {
+    background-color: var(--background-colorNav-default);
+    border: none;
+}
+
+.img {
+    background-color: var(--background-colorNav-default);
+}

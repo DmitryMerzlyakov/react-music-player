@@ -1,3 +1,12 @@
+:root {
+  --color-text-dark: #FFFFFF;
+  --background-color-dark: #313131;
+  --color-text-light: #181818;
+  --background-color-light: #F5F5F5;
+  --color-text-default: var(--color-text-dark);
+  --background-color-default: var(--background-color-dark);
+}
+
 .search {
   width: 100%;
   border-bottom: 1px solid #4E4E4E;
@@ -42,12 +51,12 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: var(--color-text-default);
 }
 
 .text::-webkit-input-placeholder {
   background-color: transparent;
-  color: #FFFFFF;
+  color: var(--color-text-default);
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -56,7 +65,7 @@
 
 .text:-ms-input-placeholder {
   background-color: transparent;
-  color: #FFFFFF;
+  color: var(--color-text-default);
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -65,7 +74,7 @@
 
 .text::-ms-input-placeholder {
   background-color: transparent;
-  color: #FFFFFF;
+  color: var(--color-text-default);
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -74,7 +83,7 @@
 
 .text::placeholder {
   background-color: transparent;
-  color: #FFFFFF;
+  color: var(--color-text-default);
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -118,7 +127,8 @@
     padding: 10px 34px 34px;
     width: 248px;
     height: 250px;
-    background: #313131;
+    border-bottom: 1px solid #B672FF;
+    background-color: var(--background-color-default);
     border-radius: 12px;
     transform: translate(35%, 60%);
 }
@@ -152,7 +162,8 @@
     padding: 10px 34px 34px;
     width: 248px;
     height: 250px;
-    background: #313131;
+    border-bottom: 1px solid #B672FF;
+    background-color: var(--background-color-default);
     border-radius: 12px;
     transform: translate(95%, 60%);
 }
@@ -191,7 +202,8 @@
     gap: 14px;
     width: 340px;
     height: 70px;
-    background: #313131;
+    border-bottom: 1px solid #B672FF;
+    background-color: var(--background-color-default);
     border-radius: 12px;
     transform: translate(40%, 90%);
 }

@@ -1,3 +1,12 @@
+:root {
+  --color-text-dark: #FFFFFF;
+  --background-color-dark: #181818;
+  --color-text-light: #181818;
+  --background-color-light: #FFFFFF;
+  --color-text-default: var(--color-text-dark);
+  --background-color-default: var(--background-color-dark);
+}
+
 .wrapper {
     display: flex;
     justify-content: center;

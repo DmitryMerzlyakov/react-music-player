@@ -1,9 +1,30 @@
+:root {
+  --color-text-dark: #FFFFFF;
+  --color-text-light: #181818;
+
+  --background-color-light: #F5F5F5;
+  --background-color-dark: #181818;
+
+  --background-image-dark: #313131;
+  --background-image-light: #F6F4F4;
+
+  --background-trackBar-dark: #2E2E2E;
+  --background-trackBar-light: #D9D9D9;
+
+
+  --color-text-default: var(--color-text-dark);
+  --background-color-default: var(--background-color-dark);
+  --background-image-default: var(--background-image-dark);
+  --background-trackBar-default: var(--background-trackBar-dark);
+
+}
+
 .bar {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(28, 28, 28, 0.5);
+  background: var(--background-color-default);
 }
 
 .content {
@@ -22,7 +43,7 @@
   appearance: none;
   width: 100%;
   height: 5px;
-  background: #2E2E2E;
+  background-color: var(--background-trackBar-default);
   border-radius: 5px;
 }
 
@@ -191,7 +212,6 @@
 
 .next {
   margin-right: 28px;
-  fill: #a53939;
 }
 
 .repeat {
@@ -292,7 +312,7 @@
 .image {
   width: 51px;
   height: 51px;
-  background-color: #313131;
+  background-color: var(--background-image-default);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -328,7 +348,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: var(--color-text-default);
   white-space: nowrap;
 }
 
@@ -344,7 +364,7 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: var(--color-text-default);
 }
 
 .likedis {

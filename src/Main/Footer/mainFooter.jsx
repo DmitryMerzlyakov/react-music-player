@@ -64,6 +64,7 @@ const Footer = () => {
             <div className={s.content}>
                     <input 
                         type='range' 
+                        step='0.01'
                         className={s.progress}
                         defaultValue='0'
                         ref={progressSong}

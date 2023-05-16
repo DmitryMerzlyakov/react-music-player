@@ -1,3 +1,19 @@
+:root {
+  --background-color-dark: #181818;
+  --background-color-light: #F5F5F5;
+
+  --color-text-light: #181818;
+  --color-text-dark: #FFFFFF;
+
+  --background-image-dark: #313131;
+  --background-image-light: #F6F4F4;
+
+
+  --color-text-default: var(--color-text-dark);
+  --background-color-default: var(--background-color-dark);
+  --background-image-default: var(--background-image-dark);
+}
+
 .playlist__item {
   width: 100%;
   display: block;
@@ -38,7 +54,7 @@
   width: 51px;
   height: 51px;
   padding: 16px;
-  background: #313131;
+  background-color: var(--background-image-default);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -63,15 +79,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #FFFFFF;
-}
-
-.track__titlespan {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #4E4E4E;
+  color: var(--color-text-default);
 }
 
 .track__author {
@@ -79,7 +87,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #FFFFFF;
+  color: var(--color-text-default);
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -90,7 +98,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #FFFFFF;
+  color: var(--color-text-default);
   text-align: left;
 }
 
