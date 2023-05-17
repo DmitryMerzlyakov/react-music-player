@@ -1,20 +1,20 @@
 :root {
-  --color-text-dark: #FFFFFF;  
-  --color-text-light: #181818;
+  --background-imgChoose-dark: #FFFFFF;  
+  --background-imgChoose-light: #181818;
 
-  --background-colorNav-dark: #1C1C1C;
-  --background-colorNav-light: #f7f6f5;
+  --background-choose-dark: #1C1C1C;
+  --background-choose-light: #f7f6f5;
 
-  --color-text-default: var(--color-text-dark);
-  --background-colorNav-default: var(--background-colorNav-dark);
+  --background-imgChoose-default: var(--background-imgChoose-dark);
+  --background-choose-default: var(--background-choose-dark);
 
 }
 
 .button {
-    background-color: var(--background-colorNav-default);
+    background-color: var(--background-choose-default);
     border: none;
 }
 
 .img {
-    background-color: var(--background-colorNav-default);
+    color: var(--background-imgChoose-default);
 }

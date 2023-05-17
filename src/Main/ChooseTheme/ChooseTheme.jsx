@@ -17,8 +17,8 @@ const ButtonForChoose = ({onClick, img}) => {
 const Choose = () => {
 
     const isTheme = useTheme();
-    const [visibleDark, setVisibleDark] = useState(true);
-    const [visibleLight, setVisibleLight] = useState();
+    const [visibleDark, setVisibleDark] = useState();
+    const [visibleLight, setVisibleLight] = useState(true);
 
 
     const handleDarkChange = () => {
@@ -37,11 +37,11 @@ const Choose = () => {
         <>  
             {visibleDark && <ButtonForChoose
             onClick={handleDarkChange}
-            img={light}
+            img={dark}
             />}
             {visibleLight && <ButtonForChoose
             onClick={handleLightChange}
-            img={dark}
+            img={light}
             />}
         </>
     );
