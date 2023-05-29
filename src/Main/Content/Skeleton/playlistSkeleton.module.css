@@ -1,3 +1,9 @@
+:root {
+  --background-skeleton-dark: #313131 ;
+  --background-skeleton-light: #9f9f9f;
+  --background-skeleton-default: var(--background-skeleton-dark);
+}
+
 .playlist__item {
   width: 100%;
   display: block;
@@ -23,20 +29,20 @@
 .title {
   width: 51px;
   height: 51px;
-  background: #313131;
+  background-color: var(--background-skeleton-default);
 }
 .author {
   width: 356px;
   height: 19px;
-  background: #313131;
+  background-color: var(--background-skeleton-default);
 }
 .album {
   width: 271px;
   height: 19px;
-  background: #313131;
+  background-color: var(--background-skeleton-default);
 }
 .time {
   width: 305px;
   height: 19px;
-  background: #313131;
+  background-color: var(--background-skeleton-default);
 }

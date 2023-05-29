@@ -1,43 +1,33 @@
 import { useState } from 'react';
 import SearchButton from './searchButton';
 import sprite from './icon/sprite.svg';
+import { useGetSongsQuery } from '../../store/songsApi';
 import s from './css/contentSearch.module.css'
 
 
 
 const Search = () => {
+    
+    const {data = []} = useGetSongsQuery()
 
-    const authors = [
-        { id: "1", name: "Guilt" },
-        { id: "2", name: "Elektro" },
-        { id: "3", name: "I’m Fire" },
-        { id: "4", name: "Non Stop" },
-        { id: "5", name: "Run Run" },
-        { id: "6", name: "Eyes on Fire" },
-        { id: "7", name: "Mucho Bien" },
-        { id: "8", name: "Knives n Cherries" },
-        { id: "9", name: "How Deep Is Your Love" }]
-
-    let authorItem = authors.map((author) => {
-       return <li className={s.li} key={author.id}>{author.name}</li>
+    let authorItem = data.map((author) => {
+       return <li className={s.li} key={author.id}>{author.author}</li>
     })
     
-    const genres = [
-        { id: "1", name: "Рок" },
-        { id: "2", name: "Поп-музыка" },
-        { id: "3", name: "Техно" },
-        { id: "4", name: "Инди" },
-        { id: "5", name: "Xип-хоп" },
-        { id: "6", name: "Шансон" },
-        { id: "7", name: "Джаз" }]
 
-    let genreItem = genres.map((genre) => {
-        return <li className={s.li} key={genre.id}>{genre.name}</li>
+
+    let dataGenre = [...new Set(data.map((item) => { return item.genre }))]
+   
+    let genreItem = dataGenre.map((item) => {
+        return <li className={s.li} key={item.id}>{item}</li>
     })
+
+
 
     const [visibleAuthor, setVisibleAuthor] = useState(false)
     const [visibleYear, setVisibleYear] = useState(false)
     const [visibleGenre, setVisibleGenre] = useState(false)
+
 
 
     const dropdownVisibleAuthor = () => {

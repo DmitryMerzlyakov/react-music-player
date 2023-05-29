@@ -1,12 +1,3 @@
-:root {
-  --color-text-dark: #FFFFFF;
-  --background-color-dark: #181818;
-  --color-text-light: #181818;
-  --background-color-light: #FFFFFF;
-  --color-text-default: var(--color-text-dark);
-  --background-color-default: var(--background-color-dark);
-}
-
 .wrapper {
     display: flex;
     justify-content: center;
@@ -30,7 +21,7 @@
     margin: 45px 0 45px 0;
 }
 
-.login {
+.input {
     width: 278.5px;
     height: 40px;
     border: 0;
@@ -42,15 +33,8 @@
     padding: 5px;
 }
 
-.password {
-    width: 278.5px;
-    height: 40px;
-    border: 0;
-    border-bottom: 1px solid #D0CECE;
-    margin-bottom: 60px;
-    letter-spacing: -0.003em;
-    font-feature-settings: 'pnum' on, 'lnum' on;
-    color: #000;
+.input:focus {
+    padding: 15px;
 }
 
 .come {

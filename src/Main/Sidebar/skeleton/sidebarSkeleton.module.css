@@ -1,7 +1,14 @@
+:root {
+  --background-skeleton-dark: #313131 ;
+  --background-skeleton-light: #9f9f9f;
+  --background-skeleton-default: var(--background-skeleton-dark);
+}
+
+
 .list {
   width: 250px;
   height: 150px;
-  background: #313131;
+  background-color: var(--background-skeleton-default);
 }
 .list:not(:last-child) {
   margin-bottom: 30px;

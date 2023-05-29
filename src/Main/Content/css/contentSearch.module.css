@@ -36,7 +36,7 @@
   width: 17px;
   height: 17px;
   margin-right: 5px;
-  stroke: #FFFFFF;
+  stroke: var(--color-text-default);
   fill: transparent;
 }
 
@@ -161,11 +161,11 @@
     position: absolute;
     padding: 10px 34px 34px;
     width: 248px;
-    height: 250px;
+    height: 150px;
     border-bottom: 1px solid #B672FF;
     background-color: var(--background-color-default);
     border-radius: 12px;
-    transform: translate(95%, 60%);
+    transform: translate(95%, 70%);
 }
 
 

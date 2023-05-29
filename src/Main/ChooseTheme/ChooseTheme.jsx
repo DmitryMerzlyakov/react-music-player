@@ -2,14 +2,11 @@ import { useTheme, THEME_DARK, THEME_LIGHT } from '../../provaider/Theme'
 import { useState } from 'react'
 import light from './img/light.png'
 import dark from './img/dark.png'
-import s from './css/chooseTheme.module.css'
 
 const ButtonForChoose = ({onClick, img}) => {
 
     return (
-        <button className={s.button} onClick={onClick}>
-            <img src={img} className={s.img} />
-        </button>
+        <img src={img} onClick={onClick}/>
     )
 }
  

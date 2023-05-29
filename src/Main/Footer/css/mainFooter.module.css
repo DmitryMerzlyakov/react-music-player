@@ -170,17 +170,6 @@
           justify-content: flex-start;
 }
 
-.volume {
-  width: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0 92px 0 0;
-}
-
 .controls {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -403,6 +392,17 @@
   stroke: #696969;
 }
 
+.volume {
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 92px 0 0;
+}
+
 .volume__content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -432,8 +432,105 @@
 
 .volume__progress {
   width: 109px;
+  display: flex;
 }
 
 .volume__progressline {
   width: 109px;
+  height: 2px;
+  background-color: var(--color-text-default);
+  cursor: pointer;
+  --seek-before-width: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
+
+/* .volume__progressline::before {
+  content: '';
+  height: 5px;
+  width: var(--seek-before-width);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  background-color: #B672FF;
+}
+
+ .volume__progressline::-moz-range-progress{
+  background-color: #B672FF;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  height: 5px;
+} */
+
+
+.volume__progressline::-webkit-slider-thumb {
+  appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: #1A1A1A;
+  border: 2px solid #FFFFFF;
+}
+
+.volume__progressline::-moz-range-thumb {
+  appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: #1A1A1A;
+  border: 2px solid #FFFFFF;
+}
+
+.volume__progressline::-ms-thumb {
+  appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: #1A1A1A;
+  border: 2px solid #FFFFFF;
+}
+
+/* .volume__progressline::-webkit-slider-thumb:hover {
+  background: #B672FF;
+  height: 8px;
+}
+
+.volume__progressline::-moz-range-thumb:hover {
+ background: #B672FF;
+  height: 8px;
+}
+
+.volume__progressline::-ms-thumb:hover {
+  background: #B672FF;
+  height: 8px;
+} */
+
+/* .volume__progressline::-webkit-slider-runnable-track  {
+  appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+.volume__progressline::-moz-range-track {
+  appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+.volume__progressline::-moz-focus-outer {
+  border: 0;
+}
+
+.volume__progressline::-ms-track {
+  appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+} */

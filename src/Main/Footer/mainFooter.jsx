@@ -9,10 +9,12 @@ const Footer = () => {
     const [play, setPlay] = useState(false);
     const [currentTime, setCurrentTime] = useState(0)
     const [duration, setDuration] = useState(0)
+    const [volume, setVolume] = useState(0.4)
 
     const playRef = useRef(null);
     const progressSong = useRef();
     const animationRef = useRef(); 
+    const volumeRef = useRef()
 
     const togglePlay = () => {
         const prevValue = play;
@@ -41,12 +43,17 @@ const Footer = () => {
         setCurrentTime(progressSong.current.value);
     }
 
+    const changeVolume = () => {
+        playRef.current.volume = volumeRef.current.value
+        setVolume(volumeRef.current.value)
+        console.log(volume);
+    }
+
     useEffect(() => {
         const seconds = Math.floor(playRef.current.duration);
         setDuration(seconds);
         progressSong.current.max = seconds;
     }, [playRef?.current?.loadedmetadata, playRef?.current?.readyState]);
-
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -147,7 +154,16 @@ const Footer = () => {
                                     </svg>
                                 </div>
                                 <div className={s.volume__progress}>
-                                <input className={`${s.volume__progressline} ${s.btn}`} type="range" name="range" />
+                                    <input 
+                                        className={`${s.volume__progressline} ${s.btn}`}
+                                        type="range"
+                                        defaultValue='0.4'
+                                        min='0'
+                                        max='1'
+                                        step='0.01'
+                                        ref={volumeRef}
+                                        onChange={changeVolume}
+                                        />
                                 </div>
                                 
                             </div>

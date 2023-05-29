@@ -1,8 +1,12 @@
 import sprite from './icon/sprite.svg';
 import Song from './playlistItem';
+import { useGetSongsQuery } from '../../store/songsApi';
 import s from './css/contentPlaylist.module.css'
 
 const Playlist = () => {
+
+    const { data = [] } = useGetSongsQuery()
+
     return (
         <div className={s.centerblock__content}>
             <div className={s.content__title}>
@@ -15,27 +19,16 @@ const Playlist = () => {
                     </svg>
                 </div>
             </div>
-                <div className={s.contentplaylist}>
-                <Song
-                    title="Guilt"
-                    author="Nero"
-                    album="Welcome Reality"
-                    time="4:44"
+            <ul className={s.contentplaylist}>
+                {data.map(item => (
+                    <Song key={item.id}
+                        title={item.name}
+                        author={item.author}
+                        album={item.album}
+                        time={item.duration_in_seconds}
                 />
-                 <Song
-                    title="Elektro"
-                    author="Dynoro, Outwork, Mr. Gee"
-                    album="Elektro"
-                    time="2:22"
-                />
-                 <Song
-                    title="I’m Fire"
-                    author="Ali Bakgor"
-                    album="I’m Fire"
-                    time="2:22"
-                />
-                
-            </div>    
+                ))}
+            </ul>    
         </div>
     );
 }

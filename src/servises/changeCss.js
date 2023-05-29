@@ -8,6 +8,6 @@ export const changeCss = theme => {
     root.style.setProperty('--background-colorNav-default', `var(--background-colorNav-${theme})`);
     root.style.setProperty('--background-choose-default', `var(--background-choose-${theme})`);
     root.style.setProperty('--background-imgChoose-default', `var(--background-imgChoose-${theme})`);
+    root.style.setProperty('--background-skeleton-default', `var(--background-skeleton-${theme})`);
 
 }
-
