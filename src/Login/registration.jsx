@@ -1,69 +1,59 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { setUser } from '../store/slices/userSlice'
-import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
+import { useAddUserMutation } from '../store/songsApi'
 import logo from './img/logo.png' 
 import Input from './input'
 import s from './login.module.css'
+import { useState } from 'react'
 
 const Registration = () => {
 
-    const dispatch = useDispatch()
+    const [user, setUser] = useState({
+        username: '',
+        email: '',
+        password: '',
+    })
+
+    const [createUser] = useAddUserMutation()
+
     const navigate = useNavigate()
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm()
-
-    console.log(errors);
-
-    const onSubmit = (data) => {
-        dispatch(
-        setUser({
-            login: true,
-            id: 1,
-            email: data.email,
-            token: 'blablabla',
-            userName: data.email,
-        }))
+    const onSubmit = async () => {
+        console.log(user);
+        await createUser(user)
         navigate('/')
     }
 
     return (
     <div className={s.wrapper}>   
-        <form className={s.content} onSubmit={handleSubmit(onSubmit)}>
+        <form className={s.content} onSubmit={onSubmit}>
             <img className={s.logo} src={logo}/>
             <Input 
+                id='username'
+                type='text'
+                placeholder='Введите логин'
+                onChange={(e) => setUser(
+                    { ...user, username: e.target.value }
+                )}
+            />
+            <Input 
+                value={user.email}
+                id='email'
                 type='email'
-                placeholder='Введите логин в формате e-mail'
-                {...register('email', {
-                    required: '(Нужен формат e-mail)',
-                    minLength: 4,
-                    maxLength: 20,
-                })}
+                placeholder='Введите e-mail'
+                onChange={(e) => setUser(
+                    { ...user, email: e.target.value }
+                )}
             />
             <Input
+                id='password'
                 type='password'
-                placeholder='Введите пароль'  
-                {...register('password', {
-                    required: '(длина 8-30 символов)',
-                    minLength: 8,
-                    maxLength: 20,
-                })}/>
-            <Input 
-                type='password'
-                placeholder='Повторите пароль'
-                {...register('passwordConfirm', {
-                    required: true,
-                    minLength: 8,
-                    maxLength: 20,
-                })} />
+                placeholder='Введите пароль' 
+                onChange={(e) => setUser(
+                    { ...user, password: e.target.value }
+                )}
+            />
                 
-            <Link to='/'>
-                <button className={s.register}>Зарегистрироваться</button>
-            </Link>
+            <button type='submit' className={s.register}>Зарегистрироваться</button>
         </form>
     </div>       
     );

@@ -1,8 +1,8 @@
-//import { useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useLoginUserMutation } from '../store/songsApi'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../store/slices/userSlice'
-import { useForm } from 'react-hook-form'
 import Input from './input'
 import s from './login.module.css'
 import logo from './img/logo.png'
@@ -11,76 +11,52 @@ import logo from './img/logo.png'
 const Login = () => {
 
     const dispatch = useDispatch()
-    
-    //const [login, setLogin] = useState('')
-    //const [password, setPassword] = useState('')
+
+    const [loginUser] = useLoginUserMutation()
+
+    const [isUser, setIsUser] = useState({
+        email: '',
+        password: ''
+    })
     const navigate = useNavigate();
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm()
-
-    console.log(errors);
-    // const loginChange = (e) => {
-    //     setLogin(e.target.value)
-    // }
-
-    // const passwordChange = (e) => {
-    //     setPassword(e.target.value)
-    //  }
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         dispatch(
             setUser({
                 login: true,
-                id: 1,
+                id: data.id,
                 email: data.email,
-                token: 'blablabla',
-                userName: data.email,
-            }))
+                userName: data.username
+        }))
+        await loginUser(isUser)
         navigate('/')
     }
-    // const handleLogin = (e) => {
-    //     e.preventDefault();
-    //     localStorage.setItem('user', true)
-    //     localStorage.setItem('userName', login)
-    //     setUserName(login)
-    //     setUser(true)
-    //     navigate('/')
-    // }
-
-
+   
     return (
     <div className={s.wrapper}>   
-        <form className={s.content} onSubmit={handleSubmit(onSubmit)}>
+        <form className={s.content} onSubmit={onSubmit}>
             <img className={s.logo} src={logo} alt="" />
             <Input
                 type='email'
-                placeholder='Введите логин в формате e-mail'
-                {...register('email', {
-                    required: '(Нужен формат e-mail)',
-                    minLength: 4,
-                    maxLength: 20,
-                })}
+                placeholder='Введите e-mail'
+                onChange={(e) => setIsUser(
+                    { ...isUser, email: e.target.value }
+                )}
             />
             <Input
                 type='password'
                 placeholder='Введите пароль'  
-                {...register('password', {
-                    required: '(длина 8-30 символов)',
-                    minLength: 8,
-                    maxLength: 20,
-                })}
-                />
+                onChange={(e) => setIsUser(
+                    { ...isUser, password: e.target.value }
+                )}
+            />
                 
-            <Link to='/'>
-                <button className={s.come}>Войти</button>
-            </Link>
+            <button type='submit'className={s.come}>Войти</button>
             <Link to='/registration'>    
                 <button className={s.register}>Зарегистрироваться</button>
             </Link>
         </form>
+        
     </div>         
     );
 }

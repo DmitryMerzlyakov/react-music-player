@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { ProtectedRoute } from "./protected-route";
 import Main from "./Main/main";
 import Login from "./Login/login";
 import Registration from "./Login/registration";
@@ -6,7 +7,6 @@ import MyMusic from "./MyMusic/myMusic";
 import Hits from "./Hits/hits";
 import Indi from "./Indi/indi";
 import Day from "./DayPlaylist/day";
-import { ProtectedRoute } from "./protected-route";
 
 const AppRoutes = ({ user, setUser, userName, setUserName }) => {
     return (
@@ -16,7 +16,7 @@ const AppRoutes = ({ user, setUser, userName, setUserName }) => {
             />
             <Route path="/registration"
                 element={<Registration />} />
-            <Route element={<ProtectedRoute isAllowed={Boolean(user)}/>}> 
+            <Route element={<ProtectedRoute isAllowed={Boolean(true)}/>}> 
                 <Route path="/playlist/mymusic" element={
                     <MyMusic user={user} userName={userName} />} />
                 <Route path="/" element={

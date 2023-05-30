@@ -8,13 +8,20 @@ export const songsApi = createApi({
             query: () => `catalog/track/all/`,
         }),
         addUser: build.mutation({
-            query: (userData) => ({
+            query: (body) => ({
                 url: 'user/signup/',
                 method: 'POST',
-                body: userData
+                body
+            })
+        }),
+        loginUser: build.mutation({
+            query: (body) => ({
+                url: 'user/login/',
+                method: 'POST',
+                body
             })
         })
     })
 })
 
-export const { useGetSongsQuery, useAddUserMutation } = songsApi
+export const { useGetSongsQuery, useAddUserMutation, useLoginUserMutation } = songsApi

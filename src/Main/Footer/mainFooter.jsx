@@ -119,12 +119,12 @@ const Footer = () => {
                                 <SkeletonFooter />
                             ) : (
                                 <div className={s.contain}>
-                                        <div className={s.image}>
+                                    <div className={s.image}>
                                         <svg className={s.svg} alt="music">
                                             <use xlinkHref={`${sprite}#icon-note`}></use>
                                         </svg>
                                     </div>
-                                        <div className={s.author}>
+                                    <div className={s.author}>
                                             <a className={s.authorlink} href="http://">Ты та...</a>
                                     </div>
                                     <div className={s.album}>
