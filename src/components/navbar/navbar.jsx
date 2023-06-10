@@ -51,13 +51,18 @@ const Burger = ({onClick}) => {
     </div>);
 }
 
-const Menu = ({user}) => {
+const Menu = () => {
+
+  const exit = () => {
+    localStorage.clear()
+  }
+
   return(
     <div className={s.nav__menu}>
       <ul className={s.menu__list}>
             <li className={s.menu__item}><Link className={s.menu__link} to='/'>Главное</Link></li>
             <li className={s.menu__item}><Link className={s.menu__link} to='/playlist/mymusic'>Мой плейлист</Link></li>
-            <li className={s.menu__item}><Link className={s.menu__link} to='/login'>{user ? '' : 'Выйти'}</Link></li>
+            <li className={s.menu__item} onClick={exit}><Link className={s.menu__link} to='/login'>Выйти</Link></li>
             <Choose/>
       </ul>
     </div>);

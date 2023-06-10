@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import SearchButton from '../../components/searchButton/searchButton';
 import sprite from '../../image/sprite.svg';
-import { useGetSongsQuery } from '../../store/songsApi';
+import { useGetAllTracksQuery } from '../../servises/songsApi';
 import s from './contentSearch.module.css'
 
 
 
 const Search = () => {
     
-    const {data = []} = useGetSongsQuery()
+    const {data = []} = useGetAllTracksQuery()
 
     let authorItem = data.map((author) => {
        return <li className={s.li} key={author.id}>{author.author}</li>

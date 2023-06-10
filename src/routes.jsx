@@ -9,18 +9,20 @@ import Registration from "./pages/Login/registration";
 // import Day from "./DayPlaylist/day";
 
 const AppRoutes = () => {
+
+
     return (
         <Routes>
-            <Route path="/login"
-                element={<Login />}
-            />
-            <Route path="/registration"
-                element={<Registration />} />
-            <Route element={<ProtectedRoute isAllowed={Boolean(true)}/>}> 
+            <Route path="/login" element={<Login />} />
+
+            <Route path="/registration" element={<Registration />} />
+
+            <Route element={<ProtectedRoute/>}> 
                 {/* <Route path="/playlist/mymusic" element={
                     <MyMusic user={user} userName={userName} />} /> */}
-                <Route path="/" element={
-                        <Main />}/> 
+                
+                <Route path="/" element={<Main />} /> 
+                
                 {/* <Route path="/playlist/hits" element={
                         <Hits user={user} userName={userName} />} />
                 <Route path="/playlist/indi" element={
