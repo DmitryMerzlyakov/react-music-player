@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit"
 import userSlice from './slices/userSlice';
-import { songsApi } from './songsApi';
+import { songsApi } from '../servises/songsApi';
 
 export default configureStore({
     reducer: {

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useLoginUserMutation } from '../../store/songsApi'
+import { useLoginUserMutation } from '../../servises/songsApi'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../../store/slices/userSlice'
 import Input from './input'

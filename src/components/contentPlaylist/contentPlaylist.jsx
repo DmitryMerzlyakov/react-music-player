@@ -1,6 +1,6 @@
 import sprite from '../../image/sprite.svg';
 import Song from '../song/song';
-import { useGetSongsQuery } from '../../store/songsApi';
+import { useGetSongsQuery } from '../../servises/songsApi';
 import s from './contentPlaylist.module.css'
 
 const Content = () => {

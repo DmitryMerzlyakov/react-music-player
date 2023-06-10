@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import SearchButton from '../../components/searchButton/searchButton';
 import sprite from '../../image/sprite.svg';
-import { useGetSongsQuery } from '../../store/songsApi';
+import { useGetSongsQuery } from '../../servises/songsApi';
 import s from './contentSearch.module.css'
 
 

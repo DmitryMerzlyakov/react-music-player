@@ -1,7 +1,7 @@
 import Content from '../contentPlaylist/contentPlaylist';
 import Search from '../contentSearch/contentSearch';
 import SkeletonPlaylist from './Skeleton/playlistSkeleton';
-import { useGetSongsQuery } from '../../store/songsApi';
+import { useGetSongsQuery } from '../../servises/songsApi';
 import { useState, useEffect } from 'react';
 import s from './css/mainContent.module.css'
 
