@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useAddUserMutation } from '../../servises/songsApi'
+import { useAddUserMutation } from '../../servises/userApi'
 import logo from '../../image/logo.png'
 import Input from './input'
 import s from './login.module.css'

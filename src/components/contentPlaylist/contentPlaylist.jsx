@@ -1,11 +1,12 @@
 import sprite from '../../image/sprite.svg';
 import Song from '../song/song';
-import { useGetSongsQuery } from '../../servises/songsApi';
+import SkeletonPlaylist from '../playlist/Skeleton/playlistSkeleton';
+import { useGetAllTracksQuery } from '../../servises/songsApi';
 import s from './contentPlaylist.module.css'
 
 const Content = () => {
 
-    const { data = [] } = useGetSongsQuery()
+    const { data = [], isLoading } = useGetAllTracksQuery()
 
     return (
         <div className={s.centerblock__content}>
@@ -19,16 +20,22 @@ const Content = () => {
                     </svg>
                 </div>
             </div>
-            <ul className={s.contentplaylist}>
-                {data.map(item => (
-                    <Song key={item.id}
-                        title={item.name}
-                        author={item.author}
-                        album={item.album}
-                        time={item.duration_in_seconds}
-                />
-                ))}
-            </ul>    
+                {
+                isLoading ?
+                    <SkeletonPlaylist />
+                            :
+                    <ul className={s.contentplaylist}>
+                        {data.map(item => (
+                            <Song key={item.id}
+                                title={item.name}
+                                author={item.author}
+                                album={item.album}
+                                time={item.duration_in_seconds}
+                                stared_user={item.stared_user}
+                            />
+                        ))}
+                    </ul> 
+                }
         </div>
     );
 }
