@@ -3,7 +3,7 @@ import { ProtectedRoute } from "./protected-route";
 import Main from "./pages/GeneralPlaylist/main";
 import Login from "./pages/Login/login";
 import Registration from "./pages/Login/registration";
-// import MyMusic from "../src/pages/MyMusicPlaylist/myMusic";
+import MyMusic from "./pages/MyMusicPlaylist/myMusic";
 // import Hits from "./Hits/hits";
 // import Indi from "./Indi/indi";
 // import Day from "./DayPlaylist/day";
@@ -18,8 +18,7 @@ const AppRoutes = () => {
             <Route path="/registration" element={<Registration />} />
 
             <Route element={<ProtectedRoute/>}> 
-                {/* <Route path="/playlist/mymusic" element={
-                    <MyMusic user={user} userName={userName} />} /> */}
+                <Route path="/playlist/mymusic" element={<MyMusic />} />
                 
                 <Route path="/" element={<Main />} /> 
                 

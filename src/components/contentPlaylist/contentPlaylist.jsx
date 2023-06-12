@@ -32,6 +32,7 @@ const Content = () => {
                                 album={item.album}
                                 time={item.duration_in_seconds}
                                 stared_user={item.stared_user}
+                                id={item.id}
                             />
                         ))}
                     </ul> 
