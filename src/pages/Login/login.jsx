@@ -48,11 +48,11 @@ const Login = () => {
                 localStorage.setItem('username', JSON.stringify(user.data.username))
                 dispatch(
                     setUser({
-                        login: true,
+                       // login: true,
                         id: user.data.id,
                         email: user.data.email,
                         token: token.access,
-                        userName: user.data.username
+                       // userName: user.data.username
                 }))
             })
             navigate('/')

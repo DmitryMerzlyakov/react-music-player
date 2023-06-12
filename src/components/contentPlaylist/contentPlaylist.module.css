@@ -67,5 +67,18 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  overflow-y: auto;
+  overflow-y: scroll;
+  height: 50vh;
+}
+
+.contentplaylist::-webkit-scrollbar {
+    background: #4B4949;
+    border-radius: 10px;
+    width: 4px;
+}
+
+.contentplaylist::-webkit-scrollbar-thumb {
+    background: #FFFFFF;
+    height: 65px;
+    border: 3px solid;
 }
