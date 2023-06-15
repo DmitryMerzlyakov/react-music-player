@@ -211,3 +211,49 @@
 .year {
     background: #FFFFFF;
 }
+
+.authorInd {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    color: var(--color-text-default);
+    border: 1px solid #AD61FF;
+    border-radius: 100%;
+    background-color:#AD61FF;
+    transform: translate(21vh, -20px);
+}
+
+.yearInd {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    color: var(--color-text-default);
+    border: 1px solid #AD61FF;
+    border-radius: 100%;
+    background-color:#AD61FF;
+    transform: translate(37vh, -20px);
+}
+
+.genreInd {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    color: var(--color-text-default);
+    border: 1px solid #AD61FF;
+    border-radius: 100%;
+    background-color:#AD61FF;
+    transform: translate(48vh, -20px);
+}
+
+.none {
+    display: none;
+}

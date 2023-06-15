@@ -3,33 +3,47 @@ import SearchButton from '../../components/searchButton/searchButton';
 import sprite from '../../image/sprite.svg';
 import { useGetAllTracksQuery } from '../../servises/songsApi';
 import s from './contentSearch.module.css'
-
+import { useDispatch, useSelector } from 'react-redux';
+import { delAuthor, delYear, delGenre, setAuthor, setGenre } from '../../store/slices/faiterSlice';
 
 
 const Search = () => {
+
+    const dispatch = useDispatch() 
     
-    const {data = []} = useGetAllTracksQuery()
+    const { data = [] } = useGetAllTracksQuery()
 
     let authorItem = data.map((author) => {
-       return <li className={s.li} key={author.id}>{author.author}</li>
+        return <a className={s.li} key={author.id} onClick={() => {
+            dispatch(setAuthor(author.author))
+        }}>{author.author}</a>
     })
-    
-
 
     let dataGenre = [...new Set(data.map((item) => { return item.genre }))]
    
     let genreItem = dataGenre.map((item) => {
-        return <li className={s.li} key={item.id}>{item}</li>
+        return <a className={s.li} key={item.id} onClick={() => {
+            dispatch(setGenre(item))
+        }} >{item}</a>
     })
 
+    const selectorAuthor = useSelector(setAuthor)
+    const selectorGenre = useSelector(setGenre)
+
+    const countAutgor = selectorAuthor.payload.filter.author
+    const countGenre = selectorGenre.payload.filter.genre
+    
+    let lengthAuthor = countAutgor.length
+    let lengthGenre = countGenre.length
 
 
     const [visibleAuthor, setVisibleAuthor] = useState(false)
     const [visibleYear, setVisibleYear] = useState(false)
     const [visibleGenre, setVisibleGenre] = useState(false)
-
-
-
+    const [visibleAuthorInd, setVisibleAuthorInd] = useState(false)
+    const [visibleYearInd, setVisibleYearInd] = useState(false)
+    const [visibleGenreInd, setVisibleGenreInd] = useState(false)
+     
     const dropdownVisibleAuthor = () => {
         if (visibleGenre == true) {
             dropdownVisibleGenre()
@@ -38,6 +52,10 @@ const Search = () => {
             dropdownVisibleYear()
         }
         setVisibleAuthor(!visibleAuthor)
+        setVisibleAuthorInd(!visibleAuthorInd)
+        if (lengthAuthor > 0) {
+            setVisibleAuthorInd(visibleAuthorInd)
+        }
     }
 
     const dropdownVisibleYear = () => {
@@ -48,6 +66,7 @@ const Search = () => {
             dropdownVisibleAuthor()
         }
         setVisibleYear(!visibleYear)
+        setVisibleYearInd(!visibleYearInd)
     }
 
     const dropdownVisibleGenre = () => {
@@ -58,8 +77,27 @@ const Search = () => {
             dropdownVisibleYear()
         }
         setVisibleGenre(!visibleGenre)
+        setVisibleGenreInd(!visibleGenreInd)
+        if (lengthGenre > 0) {
+           setVisibleGenreInd(visibleGenreInd)
+        }
     }
          
+    const clearAuthor = () => {
+        dispatch(delAuthor())
+        setVisibleAuthorInd(false)
+    }
+
+    const clearYear = () => {
+        dispatch(delYear())
+        setVisibleYearInd(false)
+    }
+
+    const clearGenre = () => {
+        dispatch(delGenre())
+        setVisibleGenreInd(false)
+    }
+
     return (
     <div>
         <div className={s.search}>
@@ -80,18 +118,19 @@ const Search = () => {
                     howSearch="исполнителю"
                     visible={!visibleAuthor}
                 />
-        
                 <SearchButton
                     onClick={dropdownVisibleYear}
                     howSearch="году выпуска"
                     visible={!visibleYear}
                 />
-               
                 <SearchButton
                     onClick={dropdownVisibleGenre}
                     howSearch="жанру"
                     visible={!visibleGenre}
                 />
+                <button className={`${visibleAuthorInd ? s.authorInd : s.none}`} onClick={clearAuthor}>{lengthAuthor}</button>
+                <button className={`${visibleYearInd ? s.yearInd : s.none }`} onClick={clearYear}></button>
+                <button className={`${visibleGenreInd ? s.genreInd : s.none}`} onClick={clearGenre}>{lengthGenre}</button>
                 {visibleAuthor && 
                     <div className={s.authordropdown}>
                         <ul className={s.author}>{authorItem}</ul>

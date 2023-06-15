@@ -1,7 +1,6 @@
 import Nav from '../../components/navbar/navbar';
 import Footer from '../../components/footer/footer';
 import Search from '../../components/contentSearch/contentSearch';
-// import Sidebar from '../../components/sidebar/sidebar';
 import { useGetAllTracksQuery } from '../../servises/songsApi';
 import sprite from '../../image/sprite.svg'
 import s from '../GeneralPlaylist/main.module.css'

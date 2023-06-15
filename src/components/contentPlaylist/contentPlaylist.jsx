@@ -2,11 +2,29 @@ import sprite from '../../image/sprite.svg';
 import Song from '../song/song';
 import SkeletonPlaylist from '../playlist/Skeleton/playlistSkeleton';
 import { useGetAllTracksQuery } from '../../servises/songsApi';
+import { useSelector } from 'react-redux';
 import s from './contentPlaylist.module.css'
+import { setAuthor, setGenre } from '../../store/slices/faiterSlice';
 
 const Content = () => {
 
+    const author = useSelector(setAuthor)
+    const filterAuthor = author.payload.filter.author
+    const genre = useSelector(setGenre)
+    const filterGenre = genre.payload.filter.genre
+
     const { data = [], isLoading } = useGetAllTracksQuery()
+
+    let trackData = data
+
+    if (filterAuthor.length > 0) {
+        trackData = trackData.filter((track) =>
+            track.author.includes(filterAuthor))
+    }
+    if (filterGenre.length > 0) {
+        trackData = trackData.filter((track) =>
+            track.genre.includes(filterGenre))
+    }
 
     return (
         <div className={s.centerblock__content}>
@@ -25,7 +43,7 @@ const Content = () => {
                     <SkeletonPlaylist />
                             :
                     <ul className={s.contentplaylist}>
-                        {data.map(item => (
+                        {trackData.map(item => (
                             <Song key={item.id}
                                 title={item.name}
                                 author={item.author}
