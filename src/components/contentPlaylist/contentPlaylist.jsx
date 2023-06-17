@@ -4,7 +4,7 @@ import SkeletonPlaylist from '../playlist/Skeleton/playlistSkeleton';
 import { useGetAllTracksQuery } from '../../servises/songsApi';
 import { useSelector } from 'react-redux';
 import s from './contentPlaylist.module.css'
-import { setAuthor, setGenre } from '../../store/slices/faiterSlice';
+import { setAuthor, setGenre, setSearchTrack, setYear } from '../../store/slices/faiterSlice';
 
 const Content = () => {
 
@@ -12,7 +12,11 @@ const Content = () => {
     const filterAuthor = author.payload.filter.author
     const genre = useSelector(setGenre)
     const filterGenre = genre.payload.filter.genre
-
+    const year = useSelector(setYear)
+    const filterYear = year.payload.filter.age
+    const search = useSelector(setSearchTrack)
+    const searchTrack = search.payload.filter.name
+ 
     const { data = [], isLoading } = useGetAllTracksQuery()
 
     let trackData = data
@@ -24,6 +28,22 @@ const Content = () => {
     if (filterGenre.length > 0) {
         trackData = trackData.filter((track) =>
             track.genre.includes(filterGenre))
+    }
+    if (searchTrack.length > 0) {
+        trackData = trackData.filter((track) =>
+            track.name.toLowerCase().includes(searchTrack.toLowerCase())
+        );
+    }
+
+    switch (filterYear) {
+        case 'newer':
+        trackData = trackData.filter((el) => el).sort(({ release_date: adate }, { release_date: bdate }) => new Date(bdate).valueOf() - new Date(adate).valueOf())
+        break
+        case 'older':
+        trackData = trackData.filter((el) => el).sort(({ release_date: adate }, { release_date: bdate }) => new Date(adate).valueOf() - new Date(bdate).valueOf())
+        break
+        default:
+        break
     }
 
     return (

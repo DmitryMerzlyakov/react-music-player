@@ -1,0 +1,123 @@
+:root {
+  --color-text-dark: #FFFFFF;
+  --background-color-dark: #181818;
+  --color-text-light: #181818;
+  --background-color-light: #F5F5F5;
+  --color-text-default: var(--color-text-dark);
+  --background-color-default: var(--background-color-dark);
+}
+
+.search {
+  width: 100%;
+  border-bottom: 1px solid #4E4E4E;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.svg {
+  width: 17px;
+  height: 17px;
+  margin-right: 5px;
+  stroke: var(--color-text-default);
+  fill: transparent;
+}
+
+.text {
+  -webkit-box-flex: 100;
+      -ms-flex-positive: 100;
+          flex-grow: 100;
+  background-color: transparent;
+  border: none;
+  padding: 13px 10px 14px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-text-default);
+}
+
+.text::-webkit-input-placeholder {
+  background-color: transparent;
+  color: var(--color-text-default);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.text:-ms-input-placeholder {
+  background-color: transparent;
+  color: var(--color-text-default);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.text::-ms-input-placeholder {
+  background-color: transparent;
+  color: var(--color-text-default);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.text::placeholder {
+  background-color: transparent;
+  color: var(--color-text-default);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+ .dropdownSearch {
+  position: absolute;
+  top: 9%; 
+  left: 19%;
+  width: 55%;
+  margin: 3px 0 0 1%;
+  background-color: var(--background-color-default);
+  border: 1px solid var(--background-color-default);
+  box-sizing: border-box;
+  z-index: 1;
+  list-style-type: none;
+  overflow-y: scroll;
+  max-height: 200px;
+}
+
+.dropdownSearch li {
+  width: 100%;
+  padding: 5px;
+}
+
+.dropdownSearch li:hover {
+  color: #B672FF;
+  border-bottom: 1px solid #B672FF;
+  width: 98%;
+  border-radius: 3px;
+}
+
+
+.dropdownSearch::-webkit-scrollbar {
+    background: #4B4949;
+    border-radius: 10px;
+    width: 4px;
+    margin: 5px;
+}
+
+.dropdownSearch::-webkit-scrollbar-thumb {
+    background: #FFFFFF;
+    height: 65px;
+    border: 3px solid;
+    border-radius: 10px;
+}

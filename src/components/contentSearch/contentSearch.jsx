@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import SearchButton from '../../components/searchButton/searchButton';
-import sprite from '../../image/sprite.svg';
 import { useGetAllTracksQuery } from '../../servises/songsApi';
+import InputSearch from '../inputSearch/inputSearch';
 import s from './contentSearch.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { delAuthor, delYear, delGenre, setAuthor, setGenre } from '../../store/slices/faiterSlice';
+import { delAuthor, delYear, delGenre, setAuthor, setGenre, setYear } from '../../store/slices/faiterSlice';
 
 
 const Search = () => {
@@ -27,15 +27,21 @@ const Search = () => {
         }} >{item}</a>
     })
 
+    const sortByYear = (e) => {
+        dispatch(setYear(e.target.value))
+    };
+
     const selectorAuthor = useSelector(setAuthor)
     const selectorGenre = useSelector(setGenre)
+    const selectorYear = useSelector(setYear)
 
     const countAutgor = selectorAuthor.payload.filter.author
     const countGenre = selectorGenre.payload.filter.genre
+    const countYear = selectorYear.payload.filter.age
     
     let lengthAuthor = countAutgor.length
     let lengthGenre = countGenre.length
-
+    let lengthYear = countYear.length
 
     const [visibleAuthor, setVisibleAuthor] = useState(false)
     const [visibleYear, setVisibleYear] = useState(false)
@@ -67,6 +73,9 @@ const Search = () => {
         }
         setVisibleYear(!visibleYear)
         setVisibleYearInd(!visibleYearInd)
+        if (lengthYear > 0) {
+            setVisibleYearInd(visibleYearInd)
+        }
     }
 
     const dropdownVisibleGenre = () => {
@@ -98,18 +107,10 @@ const Search = () => {
         setVisibleGenreInd(false)
     }
 
+
     return (
     <div>
-        <div className={s.search}>
-            <svg className={s.svg}>
-                <use xlinkHref={`${sprite}#icon-search`}/>
-            </svg>
-            <input
-                className={s.text}
-                type="search"
-                placeholder="Поиск"
-                name="search"/>
-        </div>
+        <InputSearch tracks={data} />
         <h2 className={s.header}>Треки</h2>
         <div className={s.filter}>
             <div className={s.title}>Искать по:</div>
@@ -129,7 +130,7 @@ const Search = () => {
                     visible={!visibleGenre}
                 />
                 <button className={`${visibleAuthorInd ? s.authorInd : s.none}`} onClick={clearAuthor}>{lengthAuthor}</button>
-                <button className={`${visibleYearInd ? s.yearInd : s.none }`} onClick={clearYear}></button>
+                <button className={`${visibleYearInd ? s.yearInd : s.none}`} onClick={clearYear}>x</button>
                 <button className={`${visibleGenreInd ? s.genreInd : s.none}`} onClick={clearGenre}>{lengthGenre}</button>
                 {visibleAuthor && 
                     <div className={s.authordropdown}>
@@ -137,9 +138,10 @@ const Search = () => {
                     </div>}
                 {visibleYear &&
                     <div className={s.yeardropdown}>
-                        <input className={s.year} id="new" type="radio" name="question"/>
+                        <input className={s.year} id="new" value="newer" type="radio" name="choice" onClick={sortByYear}/>
                         <label htmlFor="new">Более новые</label>
-                        <input className={s.year} id="old" type="radio" name="question" />
+
+                        <input className={s.year} id="old" value="older" type="radio" name="choice"onClick={sortByYear}/>
                         <label htmlFor="old">Более старые</label>
                     </div>}
                 {visibleGenre &&
