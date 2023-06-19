@@ -8,16 +8,26 @@ import playlist03 from '../../image/playlist03.png'
 import exitDark from '../../image/exitDark.png'
 import exitLight from '../../image/exitLight.png'
 import s from './css/mainSidebar.module.css'
+import { useSelector } from 'react-redux'
+import { setUser } from '../../store/slices/userSlice'
 
 
 
 const Sidebar = () => {
 
+    const selector = useSelector(setUser)
+
     const [icon, setIcon] = useState(exitDark)
+    const [name, setName] = useState()
     const isTheme = useTheme();
 
-    const user = localStorage.getItem('username')
-    const userName = JSON.parse(user)
+    const username = localStorage.getItem('username')
+    const user = JSON.parse(username);
+
+    useEffect(() => {
+        setName(user)
+    }, [selector])
+
     
     useEffect(() => {
         switch (isTheme.theme) {
@@ -34,11 +44,13 @@ const Sidebar = () => {
     return (
         <>
         <div className={s.main__sidebar}>
-            <div className={s.sidebar__personal}>
-                <p className={s.sidebar__personalname}>{userName}</p>
-                <div className={s.sidebar__avatar} onClick={exit}>
-                    <img src={icon} alt="exit" /> 
-                </div>
+            <div className={s.sidebar__personal} >
+                <p className={s.sidebar__personalname}>{ name }</p>
+                <Link className={s.menu__link} to='/login'>
+                    <span className={s.sidebar__avatar} onClick={exit}>
+                        <img src={icon} alt="exit" /> 
+                    </span>
+                </Link>    
             </div>
             <div className={s.sidebar__block}>
                 <div className={s.sidebar__list}>

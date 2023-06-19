@@ -46,6 +46,7 @@ const Content = () => {
         break
     }
 
+
     return (
         <div className={s.centerblock__content}>
             <div className={s.content__title}>
@@ -71,6 +72,7 @@ const Content = () => {
                                 time={item.duration_in_seconds}
                                 stared_user={item.stared_user}
                                 id={item.id}
+                                file={item.track_file}
                             />
                         ))}
                     </ul> 

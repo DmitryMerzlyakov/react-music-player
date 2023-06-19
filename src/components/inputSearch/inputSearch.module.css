@@ -53,15 +53,6 @@
   line-height: 24px;
 }
 
-.text:-ms-input-placeholder {
-  background-color: transparent;
-  color: var(--color-text-default);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-}
-
 .text::-ms-input-placeholder {
   background-color: transparent;
   color: var(--color-text-default);
@@ -78,6 +69,10 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+}
+
+.text:focus::placeholder {
+  color: transparent
 }
 
  .dropdownSearch {
@@ -109,15 +104,14 @@
 
 
 .dropdownSearch::-webkit-scrollbar {
-    background: #4B4949;
-    border-radius: 10px;
-    width: 4px;
-    margin: 5px;
+  background: #4B4949;
+  border-radius: 10px;
+  width: 4px;
+  margin: 5px;
 }
 
 .dropdownSearch::-webkit-scrollbar-thumb {
-    background: #FFFFFF;
-    height: 65px;
-    border: 3px solid;
-    border-radius: 10px;
+  height: 65px;
+  border: 3px solid #B672FF;
+  border-radius: 10px;
 }

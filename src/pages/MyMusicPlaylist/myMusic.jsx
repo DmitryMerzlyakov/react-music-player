@@ -2,6 +2,8 @@ import Nav from '../../components/navbar/navbar';
 import Footer from '../../components/footer/footer';
 import Search from '../../components/contentSearch/contentSearch';
 import { useGetAllTracksQuery } from '../../servises/songsApi';
+import { useSelector } from 'react-redux';
+import { setTrackPlay } from '../../store/slices/trackSlice';
 import sprite from '../../image/sprite.svg'
 import s from '../GeneralPlaylist/main.module.css'
 import ss from '../../components/playlist/css/mainContent.module.css'
@@ -13,6 +15,9 @@ const MyMusic = () => {
     const { data = [] } = useGetAllTracksQuery()
     const userId = localStorage.getItem('userId')
 
+    const selector = useSelector(setTrackPlay);
+    const trackId = selector.payload.track.trackId;
+
     const tracksData = data.filter((track) => track.stared_user.some((user) => user.id === Number(userId)))
 
     return (
@@ -20,7 +25,6 @@ const MyMusic = () => {
             <Nav />
             <div className={ss.centerblock}>
                 <Search/>
-                {/* <MyContent/> */}
                 <div className={sss.content__title}>
                     <div className={`${sss.playlisttitlecol} ${sss.col01}`}>Трек</div>
                     <div className={`${sss.playlisttitlecol} ${sss.col02}`}>ИСПОЛНИТЕЛЬ</div>
@@ -44,8 +48,9 @@ const MyMusic = () => {
                     ))}
                 </ul> 
             </div>
-            <Footer />
-            {/* <Sidebar/> */}
+            {
+                trackId ? ( <Footer id={trackId} />) :  null
+            }  
         </main>      
     );
 }

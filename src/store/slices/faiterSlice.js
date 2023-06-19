@@ -4,7 +4,7 @@ const initialState = {
     author: [],
     genre: [],
     age: '',
-    name: ''
+    name: '',
 }
 
 const filterSlice = createSlice({
@@ -15,13 +15,10 @@ const filterSlice = createSlice({
           ...state,
           author: [...state.author, payload]
         }),
-        setGenre: (state, action) => {
-          const genre = action.payload.genre;
-          if (!state.genre.includes(genre)) {
-            state.genre.push(genre);
-            console.log(state);
-          }
-        },
+        setGenre: (state, {payload}) => ({
+           ...state,
+          genre: [...state.genre, payload]
+        }),
         setYear: (state, action) => {
           state.age = action.payload
         },
@@ -35,7 +32,7 @@ const filterSlice = createSlice({
           state.age = ''
         },
         setSearchTrack: (state, action) => {
-          state.name = action.payload.name;
+          state.name = action.payload.name
         },
         delTrack: (state) => {
           state.name = ''
@@ -51,7 +48,7 @@ export const {
   delAuthor,
   delGenre,
   setSearchTrack,
-  delTrack
+  delTrack,
 } = filterSlice.actions
 
 export default filterSlice.reducer

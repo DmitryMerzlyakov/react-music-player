@@ -24,7 +24,7 @@ const userSlice = createSlice({
             state.email = '',
             state.userName = '',
             state.token = ''
-        },
+        },  
         setRefresh: (state, { payload }) => ({
             ...state,
             refresh: payload.refresh,
