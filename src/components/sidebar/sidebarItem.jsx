@@ -1,21 +1,14 @@
 import SkeletonSidebar from './skeleton/sidebarSkeleton';
-import { useState, useEffect } from 'react';
+import { useGetAllTracksQuery } from '../../servises/songsApi';
 import s from './css/sidebarItem.module.css'
 
 const SidebarItem = ({ link, src, alt }) => {
 
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 2000)
-        return () => clearTimeout(timer);
-    });
+    const { isLoading } = useGetAllTracksQuery()
 
     return (
         <div className={s.sidebar__item}>
-            {loading ? (
+            {isLoading ? (
                 <SkeletonSidebar />
             ) : (
                 <a className={s.sidebar__link} href={link}>

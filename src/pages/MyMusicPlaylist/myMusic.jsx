@@ -1,6 +1,7 @@
 import Nav from '../../components/navbar/navbar';
 import Footer from '../../components/footer/footer';
 import Search from '../../components/contentSearch/contentSearch';
+import SkeletonFooter from '../../components/footer/skeleton/footerSkeleton';
 import { useGetAllTracksQuery } from '../../servises/songsApi';
 import { useSelector } from 'react-redux';
 import { setTrackPlay } from '../../store/slices/trackSlice';
@@ -49,7 +50,7 @@ const MyMusic = () => {
                 </ul> 
             </div>
             {
-                trackId ? ( <Footer id={trackId} />) :  null
+               trackId ? ( <Footer id={trackId} />) :  <SkeletonFooter/>
             }  
         </main>      
     );

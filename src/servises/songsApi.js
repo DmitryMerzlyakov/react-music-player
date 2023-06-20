@@ -20,7 +20,7 @@ export const songsApi = createApi({
       providesTags: ['Tracks'],
     }),
     getPlaylistByID: build.query({
-      query: (id) => `catalog/selection/${id}/`,
+      query: () => `catalog/selection/`,
       providesTags: ['Playlist'],
     }),
     setLike: build.mutation({

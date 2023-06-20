@@ -20,7 +20,7 @@ const Footer = ({id}) => {
 
     const [isShuffle, setShuffle] = useState(false)
     const [isRepeat, setRepeat] = useState(false)  
-    const [isFavourite, setFavourite] = useState('')
+    const [isFavourite, setFavourite] = useState(false)
     
     let index = tracks.findIndex((track) => track.id === id)
     
@@ -161,39 +161,39 @@ const Footer = ({id}) => {
                                 </div>
                             </div>
                             
-                            <div className={s.trackplay}>
-                                <div className={s.contain}>
-                                    {
-                                        playingTrack ? (
-                                            <div className={s.image}>
-                                                <svg className={s.svg} alt="music">
-                                                    <use xlinkHref={`${sprite}#icon-note`}></use>
-                                                </svg>       
-                                            </div>
-                                            ) : ('')
-                                    }    
-                                    <div className={s.author}>
-                                    {
-                                        id ? ( 
-                                            <span className={s.authorlink}>{playingTrack.name}</span>
-                                        ) : (
-                                            <span className={s.authorlink}></span>
-                                        )
-                                    }     
-                                    </div>
-                                    <div className={s.album}>
-                                    {
-                                        playingTrack ? ( 
-                                            <span className={s.albumlink}>{playingTrack.author}</span>
-                                        ) : ( 
-                                             <span className={s.albumlink}></span>
-                                        )
-                                    }    
-                                    </div>
+                        <div className={s.trackplay}>
+                            <div className={s.contain}>
+                                {
+                                    playingTrack ? (
+                                        <div className={s.image}>
+                                            <svg className={s.svg} alt="music">
+                                                <use xlinkHref={`${sprite}#icon-note`}></use>
+                                            </svg>       
+                                        </div>
+                                        ) : ('')
+                                }    
+                                <div className={s.author}>
+                                {
+                                    id ? ( 
+                                        <span className={s.authorlink}>{playingTrack.name}</span>
+                                    ) : (
+                                        <span className={s.authorlink}></span>
+                                    )
+                                }     
                                 </div>
+                                <div className={s.album}>
                                 {
                                     playingTrack ? ( 
-                                    <div className={s.likedis}>
+                                        <span className={s.albumlink}>{playingTrack.author}</span>
+                                    ) : ( 
+                                            <span className={s.albumlink}></span>
+                                    )
+                                }    
+                                </div>
+                            </div>
+                            {
+                                playingTrack ? ( 
+                                <div className={s.likedis}>
                                     <div className={`${s.like} ${s.btnicon}`} onClick={handleSetLike}>
                                         {
                                                 isFavourite ? (
@@ -207,13 +207,10 @@ const Footer = ({id}) => {
                                             )
                                         } 
                                     </div>
-                                    {/* <div className={`${s.dislike} ${s.btnicon}`}> */}
-                                            
-                                        {/* </div> */}
-                                    </div>   
-                                    ) : ( '' )
-                                } 
-                            </div>
+                                </div>   
+                                ) : ( '' )
+                            } 
+                        </div>
                         </div>
                         <div className={s.volume}>
                             <div className={s.volume__content}>

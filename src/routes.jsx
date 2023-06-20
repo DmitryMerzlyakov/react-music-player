@@ -4,9 +4,9 @@ import Main from "./pages/GeneralPlaylist/main";
 import Login from "./pages/Login/login";
 import Registration from "./pages/Login/registration";
 import MyMusic from "./pages/MyMusicPlaylist/myMusic";
-// import Hits from "./Hits/hits";
-// import Indi from "./Indi/indi";
-// import Day from "./DayPlaylist/day";
+import IndiPlaylist from "./pages/IndiPlaylist/indi";
+import DayPlaylist from "./pages/DayPlaylist/day";
+import HitsPlaylist from "./pages/HitsPlaylist/hits";
 
 const AppRoutes = () => {
 
@@ -22,12 +22,9 @@ const AppRoutes = () => {
                 
                 <Route path="/" element={<Main />} /> 
                 
-                {/* <Route path="/playlist/hits" element={
-                        <Hits user={user} userName={userName} />} />
-                <Route path="/playlist/indi" element={
-                        <Indi user={user} userName={userName} />} />
-                <Route path="/playlist/dayplaylist" element={
-                        <Day user={user} userName={userName} />} /> */}
+                <Route path="/playlist/hits" element={<HitsPlaylist />} />
+                <Route path="/playlist/indi" element={<IndiPlaylist />} /> 
+                <Route path="/playlist/dayplaylist" element={<DayPlaylist />} /> 
             </Route>
         </Routes>
     );

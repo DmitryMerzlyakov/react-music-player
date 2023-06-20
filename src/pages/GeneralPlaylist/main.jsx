@@ -2,6 +2,7 @@ import Nav from '../../components/navbar/navbar';
 import Content from '../../components/playlist/playlist';
 import Footer from '../../components/footer/footer';
 import Sidebar from '../../components/sidebar/sidebar';
+import SkeletonFooter from '../../components/footer/skeleton/footerSkeleton';
 import s from './main.module.css'
 import { useSelector } from 'react-redux';
 import { setTrackPlay } from '../../store/slices/trackSlice';
@@ -17,7 +18,7 @@ const Main = () => {
       <Nav />
       <Content />
       {
-        trackId ? ( <Footer id={trackId} />) :  null
+        trackId ? ( <Footer id={trackId} />) :  <SkeletonFooter/>
       }
       <Sidebar  />
     </main>

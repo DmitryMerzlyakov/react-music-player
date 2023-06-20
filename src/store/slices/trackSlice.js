@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     trackId: null,
-    //isFavorite: ''
 }
 
 const trackSlice = createSlice({
@@ -12,7 +11,6 @@ const trackSlice = createSlice({
         setTrackPlay: (state, { payload }) => ({
             ...state,
             trackId: payload.id,
-          //  isFavorite: payload.isFavorite
         }),
     }
 })
