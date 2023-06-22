@@ -8,11 +8,12 @@
     display: flex;
     flex-direction: column;
     width: 366px;
-    height: 439px;
+    height: auto;
     margin-top: 320px;
     background: #FFFFFF;
     border-radius: 12px;
     align-items: center;
+    gap: 10px;
 }
 
 .logo {
@@ -26,7 +27,7 @@
     height: 40px;
     border: 0;
     border-bottom: 1px solid #D0CECE;
-    margin-bottom: 35px;
+    /* margin-bottom: 35px; */
     letter-spacing: -0.003em;
     font-feature-settings: 'pnum' on, 'lnum' on;
     color: #000;
@@ -60,5 +61,13 @@
     width: 278px;
     height: 52px;
     border: 1px solid #D0CECE;
+}
+
+.errors {
+    text-align: center;
+    width: 278px;
+    padding: 0;
+    margin-bottom: 10px;
+    color: #580EA2;
 }
 
