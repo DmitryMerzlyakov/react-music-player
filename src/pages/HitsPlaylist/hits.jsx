@@ -2,7 +2,6 @@ import Nav from '../../components/navbar/navbar';
 import Footer from '../../components/footer/footer';
 import Search from '../../components/contentSearch/contentSearch';
 import SkeletonFooter from '../../components/footer/skeleton/footerSkeleton';
-import { useGetPlaylistByIDQuery } from '../../servises/songsApi';
 import { useSelector } from 'react-redux';
 import { setTrackPlay } from '../../store/slices/trackSlice';
 import sprite from '../../image/sprite.svg'
@@ -11,12 +10,10 @@ import ss from '../../components/playlist/css/mainContent.module.css'
 import sss from '../../components/contentPlaylist/contentPlaylist.module.css'
 import Song from '../../components/song/song';
 
-const HitsPlaylist = () => {
-
-    const { data = [] } = useGetPlaylistByIDQuery()
+const HitsPlaylist = ({dataForId}) => {
 
     let tracksData = []
-    tracksData = data[1].items
+    tracksData = dataForId[1].items
 
     const selector = useSelector(setTrackPlay);
     const trackId = selector.payload.track.trackId;     

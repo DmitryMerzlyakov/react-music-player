@@ -2,7 +2,6 @@ import Nav from '../../components/navbar/navbar';
 import Footer from '../../components/footer/footer';
 import Search from '../../components/contentSearch/contentSearch';
 import SkeletonFooter from '../../components/footer/skeleton/footerSkeleton';
-import { useGetPlaylistByIDQuery } from '../../servises/songsApi';
 import { useSelector } from 'react-redux';
 import { setTrackPlay } from '../../store/slices/trackSlice';
 import sprite from '../../image/sprite.svg'
@@ -11,12 +10,11 @@ import ss from '../../components/playlist/css/mainContent.module.css'
 import sss from '../../components/contentPlaylist/contentPlaylist.module.css'
 import Song from '../../components/song/song';
 
-const DayPlaylist = () => {
+const DayPlaylist = ({dataForId}) => {
 
-    const { data = [] } = useGetPlaylistByIDQuery()
 
     let tracksData = []
-    tracksData = data[0].items
+    tracksData = dataForId[0].items
 
     const selector = useSelector(setTrackPlay);
     const trackId = selector.payload.track.trackId;     

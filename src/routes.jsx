@@ -8,7 +8,7 @@ import IndiPlaylist from "./pages/IndiPlaylist/indi";
 import DayPlaylist from "./pages/DayPlaylist/day";
 import HitsPlaylist from "./pages/HitsPlaylist/hits";
 
-const AppRoutes = () => {
+const AppRoutes = ({dataForId}) => {
 
 
     return (
@@ -22,9 +22,9 @@ const AppRoutes = () => {
                 
                 <Route path="/" element={<Main />} /> 
                 
-                <Route path="/playlist/hits" element={<HitsPlaylist />} />
-                <Route path="/playlist/indi" element={<IndiPlaylist />} /> 
-                <Route path="/playlist/dayplaylist" element={<DayPlaylist />} /> 
+                <Route path="/playlist/hits" element={<HitsPlaylist dataForId={dataForId} />} />
+                <Route path="/playlist/indi" element={<IndiPlaylist dataForId={dataForId}/>} /> 
+                <Route path="/playlist/dayplaylist" element={<DayPlaylist dataForId={dataForId}/>} /> 
             </Route>
         </Routes>
     );
